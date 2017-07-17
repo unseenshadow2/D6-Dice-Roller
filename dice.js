@@ -27,6 +27,7 @@ function frontRoll(type, pool_id, dc_id, output_id, exploding = false)
 			break;
 			
 		case "shadowrun5":
+			out.value = roll_shadowrun5(e_pool.value, e_dc.value, exploding);
 			break;
 			
 		default:
@@ -144,7 +145,27 @@ function roll_basicD6(count, dc)
 	
 	output += "Hits: " + roll["hits"] + "\n";
 	output += "Failures: " + roll["failures"] + "\n\n";
-	output += "Roll: " + roll["roll"];
+	output += "Roll:\n" + roll["roll"];
+	
+	return output;
+}
+
+function roll_shadowrun5(count, dc, exploding)
+{
+	if((typeof dc) == "string")
+	{
+		dc = parseInt(dc);
+	}
+	
+	//var x = document.getElementById(output_id);
+	var roll = roll_basic(count, exploding);
+	var output = "";
+	var crit_value = (dc > 2)?(dc*2):(dc+2); // Determine when we crit success
+	var netHits = roll["hits"]-dc;
+	
+	output += "Hits: " + roll["hits"] + "\n";
+	output += "Failures: " + roll["failures"] + "\n\n";
+	output += "Roll:\n" + roll["roll"];
 	
 	return output;
 }
