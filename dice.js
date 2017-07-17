@@ -160,9 +160,22 @@ function roll_shadowrun5(count, dc, exploding)
 	//var x = document.getElementById(output_id);
 	var roll = roll_basic(count, exploding);
 	var output = "";
-	var crit_value = (dc > 2)?(dc*2):(dc+2); // Determine when we crit success
+	var crit_value = dc + 4; // Determine when we crit success
 	var netHits = roll["hits"]-dc;
 	
+	// Our booleans for the roll
+	var crit = (roll["hits"] >= crit_value);
+	var cons = (roll["failures"] >= count / 2);
+	var success = (roll["hits"] >= dc);
+	
+	if (cons && !success) { output = "Critical GLITCH!!!\n\n"; } 
+	else if (success && !crit && !cons) { output = "Success.\n\n"; }
+	else if (success && crit && !cons) { output = "Critical Success!\nAsk your GM what this means for you.\n\n"; }
+	else if (success && crit && cons) { output = "Critical Success and a Glitch!\nAsk your GM what this means for you.\n\n"; }
+	else if (success && !crit && cons) { output = "Success and Glitch.\n\n";}
+	else if (!success && !cons) { output = "You fail, but no glitch.\n\n"; }
+	
+	output += "Net Hits: " + netHits + "\n";
 	output += "Hits: " + roll["hits"] + "\n";
 	output += "Failures: " + roll["failures"] + "\n\n";
 	output += "Roll:\n" + roll["roll"];
