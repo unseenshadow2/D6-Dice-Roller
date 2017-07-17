@@ -1,0 +1,31 @@
+body
+{
+	background-image: url("images/tileable_wood_texture.png");
+}
+
+.roll_section
+{
+	background-image: url("images/paper.jpg");
+	margin: 100px auto;
+	padding: 20px;
+	width: 450px;
+}
+
+.numbers
+{
+	line-height: 2.1;
+}
+
+.numbers::after
+{
+	content: "";
+    clear: both;
+    display: table;
+}
+
+.number_input
+{
+	float: right;
+    margin-right: 2%;
+	padding: 5px 0;
+}

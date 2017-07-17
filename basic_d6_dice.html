@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic D6 Dice Roller</title>
+		<link rel="stylesheet" type="text/css" href="dice.css">
+	</head>
+	<body>
+		<script src="dice.js"></script>
+
+		<div class="roll_section">
+			<p class="numbers">
+				Dice Pool: <input class="number_input" id="dice_pool" type="number"><br>
+				DC: <input class="number_input" id="dc" type="number">
+			</p>
+
+			<textarea class="display" id="display" rows="10" cols="45"></textarea><br>
+			<button onclick="frontRoll('basic_d6', 'dice_pool', 'dc', 'display');">ROLL!</button>
+		<div>
+	</body>
+</html>
