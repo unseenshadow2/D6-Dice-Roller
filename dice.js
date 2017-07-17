@@ -23,11 +23,11 @@ function frontRoll(type, pool_id, dc_id, output_id, exploding = false)
 	switch(type)
 	{
 		case "basic_d6":
-			out.value = roll_basicD6(e_pool.value, e_dc.value);
+			out.value = roll_basicD6(e_pool.value, e_dc.value) + "\n\n" + out.value;
 			break;
 			
 		case "shadowrun5":
-			out.value = roll_shadowrun5(e_pool.value, e_dc.value, exploding);
+			out.value = roll_shadowrun5(e_pool.value, e_dc.value, exploding) + "\n\n" + out.value;
 			break;
 			
 		default:
@@ -145,7 +145,8 @@ function roll_basicD6(count, dc)
 	
 	output += "Hits: " + roll["hits"] + "\n";
 	output += "Failures: " + roll["failures"] + "\n\n";
-	output += "Roll:\n" + roll["roll"];
+	output += "Roll:\n" + roll["roll"] + "\n";
+	output += "--------------------------------------";
 	
 	return output;
 }
@@ -178,7 +179,8 @@ function roll_shadowrun5(count, dc, exploding)
 	output += "Net Hits: " + netHits + "\n";
 	output += "Hits: " + roll["hits"] + "\n";
 	output += "Failures: " + roll["failures"] + "\n\n";
-	output += "Roll:\n" + roll["roll"];
+	output += "Roll:\n" + roll["roll"] + "\n";
+	output += "--------------------------------------";
 	
 	return output;
 }
