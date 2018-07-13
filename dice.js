@@ -33,11 +33,6 @@ function frontRoll(type, pool_id, dc_id, output_id, exploding = false)
 		default:
 			window.alert("Invalid roll type presented.");
 	}
-	//if (type == "basic_d6")
-	//{
-		
-	//}
-	//else if 
 }
 
 // Roll a die of a number of sides specified by the sides variable.
